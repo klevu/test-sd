@@ -24,6 +24,7 @@ class Toolbar
         if ($currentOrder) {
             if ($currentOrder == 'personalized') {
                 $subject->getCollection()->getSelect()->order('search_result.score '. $direction);
+				\Magento\Framework\App\ObjectManager::getInstance()->get(\Psr\Log\LoggerInterface::class)->error('the select sql: '.$subject->getCollection()->getSelect()->__toString());
                 \Magento\Framework\App\ObjectManager::getInstance()->get(\Psr\Log\LoggerInterface::class)->error('after set order plugin order: '.$currentOrder);
             }
         }
